@@ -82,3 +82,5 @@ bodycopy > .gallery-grid { margin: 1rem 0; }
 /* "← Back to …" siempre en línea propia, alineado a la izquierda */
 a.back { display: block; width: fit-content; }
 a.back, .page a.back.active { color: rgba(0, 0, 0, 0.85); text-decoration-color: rgba(0, 0, 0, 0.85); }
+/* About: mismo aire entre título y "Back to Home" que en Projects */
+h1 a.back { padding-top: 2.1rem; }
