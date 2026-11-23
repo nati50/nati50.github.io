@@ -78,3 +78,7 @@ bodycopy > .gallery-grid { margin: 1rem 0; }
 .ft a { color: rgba(0, 0, 0, 0.45); text-decoration: none; }
 .ft a:hover { text-decoration: underline; }
 @media (max-width: 767px) { .ft { padding: 0 calc(3rem * 0.37) 1.5rem; } }
+
+/* "← Back to …" siempre en línea propia, alineado a la izquierda */
+a.back { display: block; width: fit-content; }
+a.back, .page a.back.active { color: rgba(0, 0, 0, 0.85); text-decoration-color: rgba(0, 0, 0, 0.85); }
