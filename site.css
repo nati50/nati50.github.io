@@ -1,0 +1,80 @@
+/* nataliagima.com — réplica estática del diseño de Cargo 3 (medido el 23-11-2026). */
+@font-face { font-family: "Alte Haas Grotesk"; src: url("/fonts/AlteHaasGrotesk-Regular.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: block; }
+@font-face { font-family: "Alte Haas Grotesk"; src: url("/fonts/AlteHaasGrotesk-Bold.woff2") format("woff2"); font-weight: 700; font-style: normal; font-display: block; }
+
+html { font-size: 0.9vw; --font-scale: 1; -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: #fff; color: rgba(0, 0, 0, 0.85); }
+*, *::before, *::after { box-sizing: border-box; }
+
+.page-content { padding: 3rem; text-align: left; }
+
+/* estilos de texto (Cargo: --font-scale × tamaño base del estilo) */
+bodycopy { --font-size: 1.2rem; display: block; font-family: "Alte Haas Grotesk", "Helvetica Neue", Helvetica, Arial, sans-serif; font-weight: 700; font-style: normal; line-height: 1.2; letter-spacing: 0; color: rgba(0, 0, 0, 0.85); }
+bodycopy, bodycopy * { font-size: calc(var(--font-scale) * var(--font-size)); }
+h1 { --font-size: 5.4rem; font-family: "Alte Haas Grotesk", "Helvetica Neue", Helvetica, Arial, sans-serif; font-weight: 400; font-style: normal; margin: 0; line-height: 1; letter-spacing: 0; color: rgba(0, 0, 0, 0.85); }
+h2 { --font-size: 3.8rem; font-family: "Alte Haas Grotesk", "Helvetica Neue", Helvetica, Arial, sans-serif; font-weight: 440; font-style: normal; margin: 0; line-height: 1.1; letter-spacing: 0; color: rgba(0, 0, 0, 0.85); }
+h1, h2 { font-size: calc(var(--font-scale) * var(--font-size)); }
+h3 { font-weight: 700; margin: 1em 0; }
+h4 { font-weight: 700; margin: 1.33em 0; }
+.caption { --font-size: 1.1rem; font-size: calc(var(--font-scale) * var(--font-size)); font-family: "Alte Haas Grotesk", "Helvetica Neue", Helvetica, Arial, sans-serif; font-weight: 500; font-style: normal; line-height: 1.2; letter-spacing: 0; color: rgba(0, 0, 0, 0.85); display: block; }
+.custom { --font-size: 2rem; font-size: calc(var(--font-scale) * var(--font-size)); font-family: "Alte Haas Grotesk", "Helvetica Neue", Helvetica, Arial, sans-serif; font-weight: 700; font-style: normal; line-height: 1.2; letter-spacing: 0; color: rgba(0, 0, 0, 0.85); display: block; }
+[style*="--font-scale"] { font-size: calc(var(--font-scale) * var(--font-size)); }
+
+/* enlaces */
+bodycopy a { color: rgba(0, 50, 255, 0.85); text-decoration: underline; text-decoration-color: rgba(0, 50, 255, 0.85); }
+h1 a, h2 a { color: rgba(0, 0, 0, 0.85); text-decoration: none; }
+.caption a, .custom a { color: rgba(0, 0, 0, 0.85); text-decoration: underline; }
+.page a.active { color: #0043ff; }
+a:active, .ml:active { opacity: 0.7; }
+
+blockquote { margin: 0; padding: 0 0 0 2em; }
+hr { background: rgba(0, 0, 0, 0.6); border: 0; height: 1px; display: block; margin: 0.5rem 0; }
+sub { position: relative; vertical-align: baseline; top: 0.3em; }
+sup { position: relative; vertical-align: baseline; top: -0.4em; }
+
+/* columnas (column-set / column-unit, 12 columnas, gutter 1rem) */
+.column-set { display: flex; gap: 1rem; width: 100%; }
+.column-unit { display: block; flex: 0 0 calc((100% - 1rem) * var(--span) / 12); min-width: 0; }
+.column-unit[style*="--span:12"] { flex-basis: 100%; }
+
+/* galería (gallery-grid) */
+.gallery-grid { display: grid; grid-template-columns: repeat(var(--cols, 2), minmax(0, 1fr)); gap: 1rem; align-items: start; width: 100%; }
+bodycopy > .gallery-grid { margin: 1rem 0; }
+.gallery-grid .mi { width: 100%; max-width: none; }
+.gallery-grid .caption { margin-bottom: 2em; }
+
+/* media-item */
+.mi { display: inline-flex; flex-direction: column; vertical-align: bottom; position: relative; margin: 0; padding: 0; width: 100%; max-width: calc(var(--s, 1) * 100%); }
+.mi img { display: block; width: 100%; height: auto; }
+.mi .ml { display: block; }
+.mi .zoom { cursor: zoom-in; }
+.mi .caption { margin-top: .5em; width: 100%; }
+.vid { position: relative; width: 100%; background: #000; }
+.vid iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+
+/* visor de imágenes (quick view de Cargo: fondo blanco, sin pies) */
+.qv { position: fixed; inset: 0; z-index: 100; background: #fff; display: flex; align-items: center; justify-content: center; padding: 3rem; cursor: zoom-out; }
+.qv[hidden] { display: none; }
+.qv img { max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain; }
+.qv button { position: absolute; border: 0; background: rgba(87, 87, 87, 0.35); color: rgba(255, 255, 255, 0.9); width: 30px; height: 30px; border-radius: 50%; font: 18px/30px system-ui, sans-serif; cursor: pointer; padding: 0; }
+.qv .x { top: 20px; right: 20px; }
+.qv .prev { left: 20px; top: 50%; margin-top: -15px; }
+.qv .next { right: 20px; top: 50%; margin-top: -15px; }
+.qv button:active { opacity: .7; }
+
+/* móvil (Cargo: vista escritorio escalada, márgenes ×0.37) */
+@media (max-width: 767px) {
+  html { font-size: 3.136vw; }
+  .page-content { padding: calc(3rem * 0.37); }
+  .gallery-grid { gap: calc(1rem * 0.37); }
+  bodycopy > .gallery-grid { margin: calc(1rem * 0.37) 0; }
+  .qv { padding: 10px; }
+  .qv .prev { left: 10px; } .qv .next { right: 10px; }
+}
+
+/* página de privacidad y enlace al pie (no existían en Cargo) */
+.privacy-text { display: block; max-width: 46em; }
+.ft { padding: 0 3rem 2rem; font-family: "Alte Haas Grotesk", "Helvetica Neue", Helvetica, Arial, sans-serif; font-size: 1.1rem; }
+.ft a { color: rgba(0, 0, 0, 0.45); text-decoration: none; }
+.ft a:hover { text-decoration: underline; }
+@media (max-width: 767px) { .ft { padding: 0 calc(3rem * 0.37) 1.5rem; } }
